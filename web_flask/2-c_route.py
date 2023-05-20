@@ -24,10 +24,11 @@ def hbnb():
     return ("HBNB")
 
 
-@app.route("/c/<text>", strict_slashes=False)
-def cText(text):
-    """prints C followed by the value of the text variable"""
-    return "C {}".format(text.replace("_", " "))
+@app.route('/c/<string:text>', strict_slashes=False)
+def c_text(text):
+    """prints C followed by <text> content"""
+    text = text.replace("_", " ")
+    return "C %s" % text
 
 
 if __name__ == "__main__":
